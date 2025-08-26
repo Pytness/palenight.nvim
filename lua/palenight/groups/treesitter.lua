@@ -1,4 +1,4 @@
-local colors = require 'theme.colors'
+local colors = require 'palenight.colors'
 
 local character = {
   { fg = colors.green },
@@ -62,8 +62,8 @@ local string = {
   { fg = colors.green },
   {
     escape = { fg = colors.comment_grey },
-    regex = { fg = colors.white },
-    special = { fg = colors.menu_grey },
+    regex = { fg = colors.dark_green },
+    special = { fg = colors.dark_green },
   },
 }
 
