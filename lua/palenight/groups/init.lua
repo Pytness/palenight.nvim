@@ -6,10 +6,29 @@ local function load_highlights(hl_table)
   end
 end
 
+M.get_groups = function(colors)
+  local groups = {}
+  local highlights = require('palenight.groups.highlights').generate(colors)
+  local treesitter = require('palenight.groups.treesitter').generate(colors)
+  local leap = require('palenight.groups.leap').generate(colors)
+
+  local function insert(tbl)
+    for k, v in pairs(tbl) do
+      groups[k] = v
+    end
+  end
+
+  insert(highlights)
+  insert(treesitter)
+  insert(leap)
+
+  return groups
+end
+
 M.load_groups = function()
-  load_highlights(require 'palenight.groups.highlights')
-  load_highlights(require 'palenight.groups.treesitter')
-  load_highlights(require 'palenight.groups.leap')
+  local colors = require 'palenight.colors'
+  local groups = M.get_groups(colors)
+  load_highlights(groups)
 end
 
 return M

@@ -1,15 +1,32 @@
 local colors = {
+  dark_red = '#FF0A33',
+  dark_green = '#A6DC56',
+  dark_yellow = '#FFB01F',
+  dark_blue = '#5C9AFF',
+  dark_purple = '#C74BD2',
+  dark_cyan = '#47CBFF',
+
   red = '#ff5370',
-  light_red = '#ff869a',
-  dark_red = '#BE5046',
   green = '#C3E88D',
-  dark_green = '#A6E22E',
   yellow = '#ffcb6b',
-  dark_yellow = '#F78C6C',
   blue = '#8cb8ff',
   purple = '#d67cde',
-  blue_purple = '#8a87de',
   cyan = '#96e1ff',
+
+  light_red = '#FF99AA',
+  light_green = '#E5F5CC',
+  light_yellow = '#FFDB99',
+  light_blue = '#ADCDFF',
+  light_purple = '#E09DE7',
+  light_cyan = '#ADE8FF',
+
+  blue_purple = '#8a87de',
+
+  -- dark_green  = '#A6E22E',
+  -- dark_yellow = '#F78C6C',
+  -- light_red = '#ff869a',
+  -- dark_red = '#BE5046',
+
   white = '#cccce6',
   black = '#1c1d24',
   visual_black = nil,
