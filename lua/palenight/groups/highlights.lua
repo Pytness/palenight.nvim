@@ -43,10 +43,10 @@ M.generate = function(colors)
     CursorColumn = { bg = colors.cursor_grey }, -- the screen column when 'cursorcolumn' is set
     CursorLine = { bg = colors.cursor_grey }, -- the screen line when 'cursorline' is set
     Directory = { fg = colors.blue }, -- directory names
-    DiffAdd = { bg = colors.green }, -- diff mode: Added line
-    DiffChange = { bg = colors.yellow }, -- diff mode: Changed line
-    DiffDelete = { bg = colors.red }, -- diff mode: Deleted line
-    DiffText = { bg = colors.cyan }, -- diff mode: Changed text within a changed line
+    DiffAdd = { bg = colors.bg_green }, -- diff mode: Added line
+    DiffChange = { bg = colors.bg_blue }, -- diff mode: Changed line
+    DiffDelete = { bg = colors.bg_red, fg = colors.bg_red }, -- diff mode: Deleted line
+    DiffText = { bg = colors.bg_yellow }, -- diff mode: Changed text within a changed line
     ErrorMsg = { fg = colors.red }, -- error messages on the command line
     VertSplit = { fg = colors.vertsplit }, -- the column separating vertically split windows
     Folded = { bg = colors.cursor_grey, fg = colors.comment_grey }, -- line used for closed folds
@@ -111,8 +111,8 @@ M.generate = function(colors)
     NeomakeErrorSign = { fg = colors.red },
     NeomakeInfoSign = { fg = colors.blue },
 
-    diffAdded = { fg = colors.green },
-    diffRemoved = { fg = colors.red },
+    Added = { fg = colors.green },
+    Removed = { fg = colors.red },
 
     VistaBracket = { fg = colors.purple },
     VistaChildrenNr = { fg = colors.dark_yellow },
