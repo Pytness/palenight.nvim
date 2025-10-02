@@ -43,10 +43,10 @@ M.generate = function(colors)
     CursorColumn = { bg = colors.cursor_grey }, -- the screen column when 'cursorcolumn' is set
     CursorLine = { bg = colors.cursor_grey }, -- the screen line when 'cursorline' is set
     Directory = { fg = colors.blue }, -- directory names
-    DiffAdd = { bg = colors.green, fg = colors.black }, -- diff mode: Added line
-    DiffChange = { bg = colors.yellow, fg = colors.black }, -- diff mode: Changed line
-    DiffDelete = { bg = colors.red, fg = colors.black }, -- diff mode: Deleted line
-    DiffText = { bg = colors.black, fg = colors.yellow }, -- diff mode: Changed text within a changed line
+    DiffAdd = { fg = colors.green }, -- diff mode: Added line
+    DiffChange = { fg = colors.yellow }, -- diff mode: Changed line
+    DiffDelete = { fg = colors.red }, -- diff mode: Deleted line
+    DiffText = { fg = colors.cyan }, -- diff mode: Changed text within a changed line
     ErrorMsg = { fg = colors.red }, -- error messages on the command line
     VertSplit = { fg = colors.vertsplit }, -- the column separating vertically split windows
     Folded = { bg = colors.cursor_grey, fg = colors.comment_grey }, -- line used for closed folds
