@@ -1,12 +1,10 @@
-local colors = require 'palenight.colors'
-
 local M = {}
 
-M.set_terminal_colors = function()
+--- @param colors PalenightColors
+function M.set_terminal_colors(colors)
   vim.g.terminal_color_0 = colors.black
-
   vim.g.terminal_color_1 = colors.red
-  vim.g.terminal_color_2 = colors.darK_green
+  vim.g.terminal_color_2 = colors.dark_green
   vim.g.terminal_color_3 = colors.dark_yellow
   vim.g.terminal_color_4 = colors.dark_blue
   vim.g.terminal_color_5 = colors.purple
