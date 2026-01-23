@@ -1,166 +1,63 @@
 local M = {}
 
-M.generate = function(colors)
-  local character = {
-    { fg = colors.green },
-    {
-      special = { fg = colors.dark_purple },
-    },
+--- @param colors PalenightColors
+function M.generate(colors)
+  return {
+    ['@annotation'] = { fg = colors.yellow },
+    ['@attribute'] = { fg = colors.light_red },
+    ['@boolean'] = { fg = colors.red, italic = true },
+    ['@character'] = { fg = colors.green },
+    ['@character.special'] = { fg = colors.dark_purple },
+    ['@comment'] = { fg = colors.comment_grey },
+    ['@conditional'] = { fg = colors.purple },
+    ['@constant.builtin'] = { fg = colors.orange },
+    ['@constant'] = { fg = colors.cyan },
+    ['@constant.macro'] = { fg = colors.dark_orange },
+    ['@constructor'] = { fg = colors.white },
+    ['@define'] = { fg = colors.purple },
+    ['@exception'] = { fg = colors.purple },
+    ['@field'] = { fg = colors.cyan },
+    ['@float'] = { fg = colors.dark_yellow },
+    ['@function.builtin'] = { fg = colors.cyan },
+    ['@function.call'] = { fg = colors.light_blue },
+    ['@function'] = { fg = colors.light_blue },
+    ['@function.macro'] = { fg = colors.purple, italic = true },
+    ['@include'] = { fg = colors.blue },
+    ['@keyword'] = { fg = colors.red, italic = true },
+    ['@keyword.function'] = { fg = colors.red, italic = true },
+    ['@keyword.operator'] = { fg = colors.dark_purple },
+    ['@keyword.return'] = { fg = colors.red },
+    ['@label'] = { fg = colors.purple },
+    ['@method.builtin'] = { fg = colors.cyan },
+    ['@method.call'] = { fg = colors.blue },
+    ['@method'] = { fg = colors.blue },
+    ['@namespace'] = { fg = colors.dark_purple },
+    ['@number'] = { fg = colors.orange },
+    ['@operator'] = { fg = colors.white },
+    ['@parameter.builtin'] = { fg = colors.cyan },
+    ['@parameter'] = { fg = colors.white, italic = true },
+    ['@parameter.reference'] = { fg = colors.menu_grey },
+    ['@property'] = { fg = colors.red },
+    ['@punctuation.bracket'] = { fg = colors.white },
+    ['@punctuation.delimiter'] = { fg = colors.white },
+    ['@punctuation'] = { fg = colors.white },
+    ['@punctuation.special'] = { fg = colors.white },
+    ['@repeat'] = { fg = colors.purple },
+    ['@storageclass'] = { fg = colors.yellow, italic = true },
+    ['@string.escape'] = { fg = colors.comment_grey },
+    ['@string'] = { fg = colors.light_green },
+    ['@string.regex'] = { fg = colors.dark_green },
+    ['@string.special'] = { fg = colors.yellow },
+    ['@symbol'] = { fg = colors.red },
+    ['@tag.attribute'] = { fg = colors.dark_purple },
+    ['@tag.delimiter'] = { fg = colors.white },
+    ['@tag'] = { fg = colors.light_red },
+    ['@type.builtin'] = { fg = colors.dark_orange },
+    ['@type'] = { fg = colors.light_orange },
+    ['@type.qualifier'] = { fg = colors.orange },
+    ['@variable.builtin'] = { fg = colors.dark_yellow },
+    ['@variable'] = { fg = colors.white },
   }
-
-  local constant = {
-    { fg = colors.cyan },
-    {
-      builtin = { fg = colors.yellow },
-      macro = { fg = colors.dark_yellow },
-    },
-  }
-
-  local function_ = {
-    { fg = colors.blue },
-    {
-      builtin = { fg = colors.cyan },
-      call = { fg = colors.blue },
-      macro = { fg = colors.purple, italic = true },
-    },
-  }
-
-  local keyword = {
-    { fg = colors.red, italic = true },
-    {
-      function_ = { fg = colors.dark_purple, italic = true },
-      operator = { fg = colors.dark_purple },
-      return_ = { fg = colors.red },
-    },
-  }
-
-  local method = {
-    { fg = colors.blue },
-    {
-      builtin = { fg = colors.cyan }, -- ?? added by copilot
-      call = { fg = colors.blue },
-    },
-  }
-
-  local parameter = {
-    { fg = colors.white, italic = true },
-    {
-      builtin = { fg = colors.cyan }, -- ?? added by copilot
-      reference = { fg = colors.menu_grey },
-    },
-  }
-
-  local punctuation = {
-    { fg = colors.white },
-    {
-      bracket = { fg = colors.white },
-      delimiter = { fg = colors.white },
-      special = { fg = colors.white },
-    },
-  }
-
-  local string = {
-    { fg = colors.green },
-    {
-      escape = { fg = colors.comment_grey },
-      regex = { fg = colors.dark_green },
-      special = { fg = colors.yellow },
-    },
-  }
-
-  local tag = {
-    { fg = colors.light_red },
-    {
-      attribute = { fg = colors.dark_purple },
-      delimiter = { fg = colors.white },
-    },
-  }
-
-  local text = {
-    { fg = colors.white },
-    {
-      emphasis = { italic = true },
-      environment = { fg = colors.dark_purple },
-      literal = { fg = colors.yellow },
-      reference = { fg = colors.dark_purple },
-      strong = { bold = true },
-      title = { fg = colors.yellow, bold = true },
-      underline = { underline = true },
-      warning = { fg = colors.yellow },
-      todo = { fg = colors.cyan },
-    },
-  }
-
-  local type = {
-    { fg = colors.yellow },
-    {
-      builtin = { fg = colors.yellow },
-      qualifier = { fg = colors.yellow },
-    },
-  }
-
-  local variable = {
-    { fg = colors.white },
-    {
-      builtin = { fg = colors.dark_yellow },
-      -- member = { fg = colors.light_red },
-    },
-  }
-
-  local treesitter = {
-    annotation = { fg = colors.yellow },
-    attribute = { fg = colors.light_red },
-    boolean = { fg = colors.red, italic = true },
-    character = character,
-    comment = { fg = colors.comment_grey },
-    conditional = { fg = colors.purple },
-    constant = constant,
-    constructor = { fg = colors.white },
-    define = { fg = colors.purple },
-    exception = { fg = colors.purple },
-    field = { fg = colors.cyan },
-    float = { fg = colors.dark_yellow },
-    ['function'] = function_,
-    include = { fg = colors.blue },
-    keyword = keyword,
-    label = { fg = colors.purple },
-    method = method,
-    namespace = { fg = colors.dark_purple },
-    number = { fg = colors.dark_yellow },
-    operator = { fg = colors.white },
-    parameter = parameter,
-    property = { fg = colors.cyan },
-    punctuation = punctuation,
-    ['repeat'] = { fg = colors.purple },
-    storageclass = { fg = colors.yellow, italic = true },
-    string = string,
-    symbol = { fg = colors.red },
-    tag = tag,
-    type = type,
-    variable = variable,
-  }
-
-  local function flatten_treesitter_table(t)
-    local result = {}
-
-    for key, value in pairs(t) do
-      local prefix = '@' .. key
-
-      result[prefix] = value[1]
-
-      if #value == 2 then
-        for subkey, subvalue in pairs(value[2]) do
-          result[prefix .. '.' .. subkey] = subvalue
-        end
-      end
-    end
-
-    return result
-  end
-
-  local t = flatten_treesitter_table(treesitter)
-
-  return t
 end
 
 return M

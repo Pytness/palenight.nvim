@@ -12,8 +12,10 @@ M.colorscheme = function()
   vim.o.termguicolors = true
   vim.g.colors_name = 'palenight'
 
-  term.set_terminal_colors()
-  groups.load_groups()
+  local colors = require 'palenight.colors'
+
+  term.set_terminal_colors(colors)
+  groups.load_groups(colors)
 end
 
 M.setup = function() end

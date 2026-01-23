@@ -1,5 +1,7 @@
 local M = {}
-M.generate = function(colors)
+
+--- @param colors PalenightColors
+function M.generate(colors)
   return {
     Comment = { fg = colors.comment_grey, italic = true, cterm = { italic = true } }, -- any comment
     Constant = { fg = colors.cyan }, -- any constant
@@ -43,10 +45,10 @@ M.generate = function(colors)
     CursorColumn = { bg = colors.cursor_grey }, -- the screen column when 'cursorcolumn' is set
     CursorLine = { bg = colors.cursor_grey }, -- the screen line when 'cursorline' is set
     Directory = { fg = colors.blue }, -- directory names
-    DiffAdd = { bg = colors.bg_green }, -- diff mode: Added line
-    DiffChange = { bg = colors.bg_blue }, -- diff mode: Changed line
-    DiffDelete = { bg = colors.bg_red, fg = colors.bg_red }, -- diff mode: Deleted line
-    DiffText = { bg = colors.bg_yellow }, -- diff mode: Changed text within a changed line
+    DiffAdd = { bg = colors.background_green }, -- diff mode: Added line
+    DiffChange = { bg = colors.background_blue }, -- diff mode: Changed line
+    DiffDelete = { bg = colors.background_red, fg = colors.background_red }, -- diff mode: Deleted line
+    DiffText = { bg = colors.background_yellow }, -- diff mode: Changed text within a changed line
     ErrorMsg = { fg = colors.red }, -- error messages on the command line
     VertSplit = { fg = colors.vertsplit }, -- the column separating vertically split windows
     Folded = { bg = colors.cursor_grey, fg = colors.comment_grey }, -- line used for closed folds
@@ -77,7 +79,7 @@ M.generate = function(colors)
     TabLineFill = {}, -- tab pages line, where there are no labels
     TabLineSel = { fg = colors.white }, -- tab pages line, active tab page label
     Title = { fg = colors.green }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual = { fg = colors.visual_black, bg = colors.visual_grey }, -- Visual mode selection
+    Visual = { fg = colors.black, bg = colors.visual_grey }, -- Visual mode selection
     VisualNOS = { bg = colors.visual_grey }, -- Visual mode selection when vim is "Not Owning the Selection"
     WarningMsg = { fg = colors.yellow }, -- warning messages
     WildMenu = { fg = colors.black, bg = colors.blue }, -- current match in 'wildmenu' completion
@@ -130,9 +132,6 @@ M.generate = function(colors)
     debugBreakpoint = { fg = colors.dark_purple },
     debugPC = { bg = colors.dark_purple, fg = colors.black },
 
-    jediFunction = { bg = colors.white_mask_3, fg = colors.white },
-    jediFat = { bg = colors.white_mask_3, fg = colors.blue, bold = true, underline = true },
-
     -- Git Highlighting
     gitcommitComment = { fg = colors.comment_grey },
     gitcommitUnmerged = { fg = colors.green },
@@ -151,11 +150,11 @@ M.generate = function(colors)
 
     MiniTablineHidden = { bg = colors.cursor_grey, fg = colors.white },
     MiniTablineVisible = { bg = colors.cursor_grey, fg = colors.white },
-    MiniTablineCurrent = { bg = colors.white_mask_3, fg = colors.white },
+    MiniTablineCurrent = { bg = colors.blue, fg = colors.full_white },
 
     MiniTablineModifiedHidden = { bg = colors.cursor_grey, fg = colors.green },
     MiniTablineModifiedVisible = { bg = colors.cursor_grey, fg = colors.green },
-    MiniTablineModifiedCurrent = { bg = colors.white_mask_3, fg = colors.green },
+    MiniTablineModifiedCurrent = { bg = colors.green, fg = colors.full_black },
 
     MiniStatuslineModeNormal = { bg = colors.blue, fg = colors.black },
     MiniStatuslineModeInsert = { bg = colors.yellow, fg = colors.black },

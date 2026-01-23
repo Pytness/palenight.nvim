@@ -6,7 +6,8 @@ local function load_highlights(hl_table)
   end
 end
 
-M.get_groups = function(colors)
+--- @param colors PalenightColors
+function M.get_groups(colors)
   local groups = {}
   local highlights = require('palenight.groups.highlights').generate(colors)
   local treesitter = require('palenight.groups.treesitter').generate(colors)
@@ -25,8 +26,8 @@ M.get_groups = function(colors)
   return groups
 end
 
-M.load_groups = function()
-  local colors = require 'palenight.colors'
+--- @param colors PalenightColors
+M.load_groups = function(colors)
   local groups = M.get_groups(colors)
   load_highlights(groups)
 end

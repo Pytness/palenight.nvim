@@ -1,6 +1,7 @@
-local colors = require 'palenight.colors'
 local M = {}
-M.generate = function(colors)
+
+--- @param colors PalenightColors
+function M.generate(colors)
   return {
     LeapBackdrop = { link = 'Comment' },
     LeapMatch = {
